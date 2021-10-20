@@ -13,7 +13,6 @@ internal enum Constants {
         internal static let gameViewController = "GameViewController"
     }
 
-
     internal enum NibNames {
         internal static let imageCellNib = "ImageCell"
     }
@@ -21,7 +20,6 @@ internal enum Constants {
     internal enum CellReuseIdentifiers {
         internal static let imageCell = "ImageCell"
     }
-        
         
     internal enum PicturesNames {
         internal enum IconNames {

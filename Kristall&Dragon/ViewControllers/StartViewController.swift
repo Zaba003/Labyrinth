@@ -26,12 +26,10 @@ class StartViewController: UIViewController, UITextFieldDelegate {
     
     // Разрешаем только цифры
     func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
-        
         let allowedCharacters = "1234567890"
         let allowedCharcterSet = CharacterSet(charactersIn: allowedCharacters)
         let typedCharcterSet = CharacterSet(charactersIn: string)
         return allowedCharcterSet.isSuperset(of: typedCharcterSet)
-        
     }
     
     func setupAddTargetIsNotEmptyTextFields() {
@@ -43,18 +41,14 @@ class StartViewController: UIViewController, UITextFieldDelegate {
        }
     
     @objc func textFieldsIsNotEmpty(sender: UITextField) {
-        
         sender.text = sender.text?.trimmingCharacters(in: .whitespaces)
-        
         guard let roomX = numberOfRoomX.text, !roomX.isEmpty, let roomY = numberOfRoomY.text, !roomY.isEmpty else
         {
             self.startBtn.isEnabled = false
             return
         }
-        
         startBtn.isEnabled = true
     }
-    
     
     // MARK: - Navigation
     
@@ -68,15 +62,12 @@ class StartViewController: UIViewController, UITextFieldDelegate {
 }
 
 extension StartViewController {
- 
      func initializeHideKeyboard(){
         let tap: UITapGestureRecognizer = UITapGestureRecognizer(
             target: self,
             action: #selector(dismissMyKeyboard))
-        
         view.addGestureRecognizer(tap)
     }
-    
     @objc func dismissMyKeyboard(){
         view.endEditing(true)
     }

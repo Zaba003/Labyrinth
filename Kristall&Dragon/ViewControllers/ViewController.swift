@@ -37,7 +37,7 @@ class ViewController: UIViewController {
             .register(imageCellNib,
                       forCellWithReuseIdentifier: Constants.CellReuseIdentifiers.imageCell)
         
-        draw()
+        create()
     }
     
     @IBAction func upButtonAction(_ sender: Any) {
@@ -98,7 +98,7 @@ class ViewController: UIViewController {
                 labirint?.player.steps += 4
                 inventoryCollectionView.reloadData()
                 setInventoryButton()
-                draw()
+                create()
                 break
             }
         }
@@ -166,7 +166,7 @@ private extension ViewController {
         let idRoom = labirint.player.idRoom
         labirint.player.idRoom = labirint.rooms[idRoom].doors[direction]
         labirint.player.steps -= 1
-        draw()
+        create()
         
         if labirint.player.steps == 0 && (!isRoomThing(Things.box) || !(isRoomThing(.key) || isInventoryThing(.key))){
             let alert = UIAlertController(
@@ -182,10 +182,10 @@ private extension ViewController {
         }
     }
     
-    func draw() {
+    func create() {
         guard let labirint = labyrinth else { return }
         stepsLabel.text = "Steps: " + String(labirint.player.steps)
-        drawDoors()
+        createDoors()
         drawThings()
     }
     
@@ -216,11 +216,10 @@ private extension ViewController {
                 roomView.subviews.last?.addGestureRecognizer(tap)
                 roomView.subviews.last?.isUserInteractionEnabled = true
             }
-            
         }
     }
     
-    func drawDoors() {
+    func createDoors() {
         guard let labirint = labyrinth else { return }
         let idRoom = labirint.player.idRoom
         let doors = labirint.rooms[idRoom].doors
@@ -256,8 +255,6 @@ private extension ViewController {
             }
         }
     }
-    
-    
 }
 
 // MARK: - Tap Image
@@ -319,7 +316,6 @@ extension ViewController: UICollectionViewDataSource {
         guard let context = labyrinth else { return 0 }
         return context.player.newInventory.count
     }
-    
 }
 
 // MARK: - Thing belonging func
