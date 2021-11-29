@@ -1,0 +1,36 @@
+/* Class = "UILabel"; text = "Steps: "; ObjectID = "C3K-fh-5Ze"; */
+"C3K-fh-5Ze.text" = "Шаги:";
+
+/* Class = "UILabel"; text = "Crystals & Dragons"; ObjectID = "GdC-1J-j2G"; */
+"GdC-1J-j2G.text" = "Кристаллы и драконы";
+
+/* Class = "UILabel"; text = "Inventory"; ObjectID = "h0e-ep-vnu"; */
+"h0e-ep-vnu.text" = "Сумка";
+
+/* Class = "UILabel"; text = "Level:"; ObjectID = "LhW-e9-ie2"; */
+"LhW-e9-ie2.text" = "Уровень:";
+
+/* Class = "UIButton"; configuration.title = "Use"; ObjectID = "pF9-PO-yPs"; */
+"pF9-PO-yPs.configuration.title" = "Выбрать";
+
+/* Class = "UIButton"; normalTitle = "Use"; ObjectID = "pF9-PO-yPs"; */
+"pF9-PO-yPs.normalTitle" = "Выбрать";
+
+/* Class = "UIButton"; configuration.title = "Drop"; ObjectID = "QbC-jP-2kI"; */
+"QbC-jP-2kI.configuration.title" = "Выбросить";
+
+/* Class = "UIButton"; normalTitle = "Drop"; ObjectID = "QbC-jP-2kI"; */
+"QbC-jP-2kI.normalTitle" = "Выбросить";
+
+/* Class = "UIButton"; configuration.title = "Discard"; ObjectID = "rxK-fs-e1w"; */
+"rxK-fs-e1w.configuration.title" = "Уничтожить";
+
+/* Class = "UIButton"; normalTitle = "Discard"; ObjectID = "rxK-fs-e1w"; */
+"rxK-fs-e1w.normalTitle" = "Уничтожить";
+
+/* Class = "UIButton"; configuration.title = "Start new Game"; ObjectID = "SCJ-Ge-V84"; */
+"SCJ-Ge-V84.configuration.title" = "Новая игра";
+
+/* Class = "UIButton"; normalTitle = "Start new game"; ObjectID = "SCJ-Ge-V84"; */
+"SCJ-Ge-V84.normalTitle" = "Новая игра";
+

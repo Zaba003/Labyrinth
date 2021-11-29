@@ -42,6 +42,8 @@ class ImageCell: UICollectionViewCell {
             image = UIImageView(image: UIImage(named: Constants.PicturesNames.IconNames.stone))
         case Things.food:
             image = UIImageView(image: UIImage(named: Constants.PicturesNames.IconNames.food))
+        case Things.book:
+            image = UIImageView(image: UIImage(named: Constants.PicturesNames.IconNames.book))
         }
         
     }

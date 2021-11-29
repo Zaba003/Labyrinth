@@ -6,63 +6,75 @@
 //
 
 import UIKit
+import Lottie
 
 class StartViewController: UIViewController, UITextFieldDelegate {
     
-    @IBOutlet weak var numberOfRoomX: UITextField!
-    @IBOutlet weak var numberOfRoomY: UITextField!
     @IBOutlet weak var startBtn: UIButton!
+    @IBOutlet weak var animationView: AnimationView!
+    
+    var firstStart = UserDefaults.standard.bool(forKey: "isFirstStart")
+    var sound = UserDefaults.standard.bool(forKey: "onSound")
+    var currentLevel = UserDefaults.standard.integer(forKey: "level")
+    let startButtonText = NSLocalizedString("Start new Game", comment: "")
+    let levelButtonText = NSLocalizedString("Start level", comment: "")
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        numberOfRoomX.delegate = self
-        numberOfRoomY.delegate = self
-        setupAddTargetIsNotEmptyTextFields()
         initializeHideKeyboard()
+        if sound == true {
+            SKTAudio.sharedInstance().playBackgroundMusic("sound_game.mp3")
+        }
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        animationView.contentMode = .scaleAspectFit
+        animationView.loopMode = .loop
+        animationView.animationSpeed = 2
+        animationView.play()
+        
+        currentLevel = UserDefaults.standard.integer(forKey: "level")
+        firstStart = UserDefaults.standard.bool(forKey: "isFirstStart")
+        //print("Уровень на старте \(currentLevel)")
+        if currentLevel != 0 {
+            startBtn.setTitle("\(levelButtonText) \(currentLevel + 1)", for: .normal)
+        } else {
+            startBtn.setTitle(startButtonText, for: .normal)
+        }
+        SKTAudio.sharedInstance().playBackgroundMusic("sound_game.mp3")
+        
     }
     
     @IBAction func startNewGameButton(_ sender: Any) {
-    }
-    
-    // Разрешаем только цифры
-    func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
-        let allowedCharacters = "1234567890"
-        let allowedCharcterSet = CharacterSet(charactersIn: allowedCharacters)
-        let typedCharcterSet = CharacterSet(charactersIn: string)
-        return allowedCharcterSet.isSuperset(of: typedCharcterSet)
-    }
-    
-    func setupAddTargetIsNotEmptyTextFields() {
-        startBtn.isEnabled = false
-        numberOfRoomX.addTarget(self, action: #selector(textFieldsIsNotEmpty),
-                                    for: .editingChanged)
-        numberOfRoomY.addTarget(self, action: #selector(textFieldsIsNotEmpty),
-                                    for: .editingChanged)
-       }
-    
-    @objc func textFieldsIsNotEmpty(sender: UITextField) {
-        sender.text = sender.text?.trimmingCharacters(in: .whitespaces)
-        guard let roomX = numberOfRoomX.text, !roomX.isEmpty, let roomY = numberOfRoomY.text, !roomY.isEmpty else
-        {
-            self.startBtn.isEnabled = false
-            return
-        }
-        startBtn.isEnabled = true
+        SKTAudio.sharedInstance().playSoundEffect("click.mp3")
     }
     
     // MARK: - Navigation
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if let controller = segue.destination as? ViewController {
-            let roomX: Int = Int(numberOfRoomX.text!) ?? 3
-            let roomY: Int = Int(numberOfRoomY.text!) ?? 3
-            controller.labyrinth = CreatorLabyrinth(M: roomX, N: roomY)
+            if firstStart == true {
+                UserDefaults.standard.set(false, forKey: "isFirstStart")
+                let roomX = 2
+                let roomY = 2
+                currentLevel = 0
+                DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
+                    controller.labyrinth = CreatorLabyrinth(M: roomX, N: roomY)
+                    //print("код запущен")
+                }
+                controller.level = currentLevel
+            } else {
+                let roomX = 2 + currentLevel
+                let roomY = 2 + currentLevel
+                controller.labyrinth = CreatorLabyrinth(M: roomX, N: roomY)
+                controller.level = currentLevel
+            }
         }
     }
 }
 
 extension StartViewController {
-     func initializeHideKeyboard(){
+    func initializeHideKeyboard(){
         let tap: UITapGestureRecognizer = UITapGestureRecognizer(
             target: self,
             action: #selector(dismissMyKeyboard))

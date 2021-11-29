@@ -14,6 +14,7 @@ enum Things: CaseIterable {
     case mushroom
     case bone
     case food
+    case book
 }
 
 struct Thing {

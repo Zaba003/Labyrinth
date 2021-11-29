@@ -6,13 +6,17 @@
 //
 
 import UIKit
+import AVFoundation
 
 class ViewController: UIViewController {
     
     @IBOutlet weak private var stepsLabel: UILabel!
-    @IBOutlet weak private var roomView: UIView!
+    @IBOutlet weak var levelLabel: UILabel!
+    @IBOutlet weak var roomView: UIView!
+    @IBOutlet weak var gameView: UIView!
     @IBOutlet weak private var inventoryCollectionView: UICollectionView!
     
+    @IBOutlet weak var speakerBtn: UIButton!
     @IBOutlet weak private var upButton: UIButton!
     @IBOutlet weak private var rightButton: UIButton!
     @IBOutlet weak private var leftButton: UIButton!
@@ -25,6 +29,11 @@ class ViewController: UIViewController {
     @IBOutlet weak var thingDescription: UILabel!
     
     var labyrinth: CreatorLabyrinth?
+    var level = 0
+    var currentLevel = UserDefaults.standard.integer(forKey: "level")
+    var firstStart = UserDefaults.standard.bool(forKey: "isFirstStart")
+//    var sound = UserDefaults.standard.bool(forKey: "onSound")
+    
     private var selectedThing: Thing?
     
     override func viewDidLoad() {
@@ -36,8 +45,37 @@ class ViewController: UIViewController {
         inventoryCollectionView
             .register(imageCellNib,
                       forCellWithReuseIdentifier: Constants.CellReuseIdentifiers.imageCell)
-        
+        currentLevel = UserDefaults.standard.integer(forKey: "level")
         create()
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        let polygonX = roomView.bounds.width
+        let polygonY = roomView.frame.size.height
+        
+        if firstStart == true {
+            UserDefaults.standard.set(polygonX, forKey: "width")
+            UserDefaults.standard.set(polygonY, forKey: "height")
+            print("Ширина \(polygonX)")
+            print("Высота \(polygonY)")
+        }
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        currentLevel = UserDefaults.standard.integer(forKey: "level")
+//        sound = UserDefaults.standard.bool(forKey: "onSound")
+    }
+    
+    @IBAction func speakerAction(_ sender: Any) {
+//        if sound == true {
+//            UserDefaults.standard.set(false, forKey: "onSound")
+//            SKTAudio.sharedInstance().backgroundMusicPlayer?.volume = 0
+//            print(sound)
+//        } else if sound == false {
+//            UserDefaults.standard.set(true, forKey: "onSound")
+//            SKTAudio.sharedInstance().backgroundMusicPlayer?.volume = 0.2
+//            print(sound)
+//        }
     }
     
     @IBAction func upButtonAction(_ sender: Any) {
@@ -57,6 +95,8 @@ class ViewController: UIViewController {
     }
     
     @IBAction func didTapUseButton(_ sender: Any) {
+        SKTAudio.sharedInstance().playSoundEffect("boom.mp3")
+        
         guard let thing = selectedThing else { return }
         if thing.name == Things.key {
             for view in roomView.subviews {
@@ -71,16 +111,19 @@ class ViewController: UIViewController {
                                         width: 50,
                                         height: 50)
                     view.removeFromSuperview()
-                    
+                    SKTAudio.sharedInstance().pauseBackgroundMusic()
+                    SKTAudio.sharedInstance().playSoundEffect("victory.mp3")
                     setInventoryButton()
                     
                     let alert = UIAlertController(
-                        title: "WOW! Super",
-                        message: "You are WIN!",
+                        title: NSLocalizedString("WOW! Super", comment: ""),
+                        message: NSLocalizedString("You are WIN!", comment: ""),
                         preferredStyle: .alert
                     )
                     
                     alert.addAction(UIAlertAction(title: "OK", style: .default, handler: { _ in
+                        
+                        self.newLevel()
                         self.dismiss(animated: true, completion: nil)
                     }))
                     self.present(alert, animated: true)
@@ -90,21 +133,61 @@ class ViewController: UIViewController {
         }
         
         guard var inventory = labyrinth?.player.newInventory else { return }
-        for i in 0..<inventory.count {
-            if inventory[i].description == "Food" {
-                inventory.remove(at: i)
-                let labirint = labyrinth
-                labirint?.player.newInventory.remove(at: i)
-                labirint?.player.steps += 4
-                inventoryCollectionView.reloadData()
-                setInventoryButton()
-                create()
-                break
+        
+        for (index, value) in inventory.enumerated() {
+            //            print("Item \(index + 1): \(value)")
+            //            print(selectedThing ?? 0)
+            if value == thing {
+                if value.description == "Food" {
+                    inventory.remove(at: index)
+                    let labirint = labyrinth
+                    labirint?.player.newInventory.remove(at: index)
+                    labirint?.player.steps += 3
+                    inventoryCollectionView.reloadData()
+                    setInventoryButton()
+                    create()
+                    break
+                } else if value.description == "Mushroom" {
+                    inventory.remove(at: index)
+                    let labirint = labyrinth
+                    labirint?.player.newInventory.remove(at: index)
+                    labirint?.player.steps += 1
+                    inventoryCollectionView.reloadData()
+                    setInventoryButton()
+                    create()
+                    break
+                } else if value.description == "Book" {
+                    let labirint = labyrinth
+                    let alert = UIAlertController(
+                        title: NSLocalizedString("Old rare book!", comment: ""),
+                        message: NSLocalizedString("Want to read the book of dragons?", comment: ""),
+                        preferredStyle: .alert
+                    )
+                    
+                    alert.addAction(UIAlertAction(title: "OK", style: .default, handler: { _ in
+                        self.performSegue(withIdentifier: "pokiDetail", sender: nil)
+                        inventory.remove(at: index)
+                        labirint?.player.steps -= 1
+                        labirint?.player.newInventory.remove(at: index)
+                        self.inventoryCollectionView.reloadData()
+                        self.setInventoryButton()
+                        self.create()
+                    }))
+                    
+                    alert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: { _ in
+                        //self.dismiss(animated: true, completion: nil)
+                    }))
+                    
+                    self.present(alert, animated: true)
+                }
             }
         }
     }
     
     @IBAction func didTapDropButton(_ sender: Any) {
+        
+        SKTAudio.sharedInstance().playSoundEffect("boom2.mp3")
+        
         guard let thing = selectedThing, let labirint = labyrinth else {
             return
         }
@@ -134,6 +217,8 @@ class ViewController: UIViewController {
     }
     
     @IBAction func DidTapDiscardButton(_ sender: Any) {
+        SKTAudio.sharedInstance().playSoundEffect("trash.mp3")
+        
         guard let thing = selectedThing, let labirint = labyrinth,
               thing.name != Things.key else { return }
         let inventory = labirint.player.newInventory
@@ -147,12 +232,25 @@ class ViewController: UIViewController {
         }
     }
     
+    private func newLevel() {
+        level += 1
+        //print("Уровень в игре \(level)")
+        UserDefaults.standard.set(level, forKey: "level")
+    }
+    
     private func setInventoryButton() {
         selectedThing = nil
         useButton.isEnabled = false
         dropButton.isEnabled = false
         discardButton.isEnabled = false
         thingDescription.text = ""
+    }
+    // MARK: Navigation
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "pokiDetail" {
+            _ = segue.destination as! PokiDetailViewController
+            //Отсюда можно передать какие-либо параметры другому View
+        }
     }
 }
 
@@ -169,13 +267,17 @@ private extension ViewController {
         create()
         
         if labirint.player.steps == 0 && (!isRoomThing(Things.box) || !(isRoomThing(.key) || isInventoryThing(.key))){
+            SKTAudio.sharedInstance().pauseBackgroundMusic()
+            SKTAudio.sharedInstance().playSoundEffect("fail.mp3")
+            
             let alert = UIAlertController(
-                title: "You lose...",
-                message: "Use food to refill steps!",
+                title: NSLocalizedString("You lose...", comment: ""),
+                message: NSLocalizedString("Use food to refill steps!", comment: ""),
                 preferredStyle: .alert
             )
             
             alert.addAction(UIAlertAction(title: "OK!", style: .default, handler: { _ in
+                
                 self.dismiss(animated: true, completion: nil)
             }))
             self.present(alert, animated: true)
@@ -185,8 +287,10 @@ private extension ViewController {
     func create() {
         guard let labirint = labyrinth else { return }
         stepsLabel.text = "Steps: " + String(labirint.player.steps)
+        levelLabel.text = "Level: " + String(level + 1)
         createDoors()
         drawThings()
+        
     }
     
     func drawThings() {
@@ -207,8 +311,8 @@ private extension ViewController {
             roomView.addSubview(image)
             roomView.subviews.last?.frame = CGRect(x: thing.coordinate.x,
                                                    y: thing.coordinate.y,
-                                                   width: 50,
-                                                   height: 50)
+                                                   width: 40,
+                                                   height: 40)
             if(thing.name != Things.box) {
                 let tap = UITapGestureRecognizer(target: self,
                                                  action: #selector(self
@@ -260,12 +364,15 @@ private extension ViewController {
 // MARK: - Tap Image
 private extension ViewController {
     @objc func didTapImage(_ sender: UITapGestureRecognizer) {
+        
+        SKTAudio.sharedInstance().playSoundEffect("click.mp3")
+        
         guard let view = sender.view else { return }
         guard let labirint = labyrinth else { return }
         if roomView.subviews.contains(view) {
             if let image = view as? ImageCell,
                let thing = image.thing,
-               labirint.player.newInventory.count < 5 {
+               labirint.player.newInventory.count < 6 {
                 labirint.player.newInventory.append(thing)
                 let id = labirint.player.idRoom
                 let things = labirint.rooms[id].things
@@ -291,7 +398,17 @@ extension ViewController: UICollectionViewDelegate {
         dropButton.isEnabled = true
         discardButton.isEnabled = true
         if selectedThing?.description == "Food" {
-            thingDescription.text = "Food. Restores energy for 4 steps"
+            thingDescription.text = NSLocalizedString("Food. Restores energy for 3 steps", comment: "")
+        } else if selectedThing?.description == "Mushroom" {
+            thingDescription.text = NSLocalizedString("Mushroom. Restores energy for 1 steps", comment: "")
+        } else if selectedThing?.description == "Book" {
+            thingDescription.text = NSLocalizedString("Book. Lose one move, study the book of dragons", comment: "")
+        } else if selectedThing?.description == "key" {
+            thingDescription.text = NSLocalizedString("Key. Suitable for opening a chest", comment: "")
+        } else if selectedThing?.description == "Stone" {
+            thingDescription.text = NSLocalizedString("Stone. You can kill the dragon", comment: "")
+        } else if selectedThing?.description == "Bone" {
+            thingDescription.text = NSLocalizedString("Bone. Сan you feed the dragon", comment: "")
         } else {
             thingDescription.text = selectedThing?.description ?? ""
         }
@@ -340,4 +457,5 @@ private extension ViewController {
         return false
     }
 }
+
 

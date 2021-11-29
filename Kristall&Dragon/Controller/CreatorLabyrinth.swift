@@ -17,7 +17,7 @@ class CreatorLabyrinth {
         self.M = M
         self.N = N
         
-        // Генерируем комнаты
+        // Генерируем комнаты  
         for i in 0..<N {
             for j in 0..<M {
                 self.rooms.append(Room(id: i * M + j))
@@ -47,17 +47,27 @@ class CreatorLabyrinth {
         }
         
         // Раставляем ключ и сундук
-        let idBoxRoom = playerRooms[Int.random(in: 0..<playerRooms.count)]
-        let idKeyRoom = playerRooms[Int.random(in: 0..<playerRooms.count)]
+        let idBoxRoom = playerRooms[Int.random(in: 1..<playerRooms.count)]
+        let idKeyRoom = playerRooms[Int.random(in: 1..<playerRooms.count)]
+        let idBookRoom = playerRooms[Int.random(in: 1..<playerRooms.count)]
+        
+        let randomCoordBox = rooms[idBoxRoom].polygon.randomElement()
+        let randomCoordKey = rooms[idKeyRoom].polygon.randomElement()
+        let randomCoordBook = rooms[idBookRoom].polygon.randomElement()
+        
+        //rooms[idBoxRoom].polygon.remove(at: randomCoordinate)
         
         rooms[idBoxRoom].things.append(Thing(name: .box,
-                                             coordinate: Point(x: 50,
-                                                               y: 50),
+                                             coordinate: randomCoordBox!,
                                              description: "box"))
+
         rooms[idKeyRoom].things.append(Thing(name: .key,
-                                             coordinate: Point(x: 50,
-                                                               y: 0),
+                                             coordinate: randomCoordKey!,
                                              description: "key"))
+        
+        rooms[idBookRoom].things.append(Thing(name: .book,
+                                             coordinate: randomCoordBook!,
+                                             description: "Book"))
         
         // Считаем шаги
         self.player.steps = CreatorLabyrinth.breadthFirstSearch(idStart: playerRoom,

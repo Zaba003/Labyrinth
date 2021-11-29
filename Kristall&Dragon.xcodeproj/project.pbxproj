@@ -7,6 +7,17 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		D43802F32754B5CB004C8656 /* sound.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = D43802F22754B5CA004C8656 /* sound.mp3 */; };
+		D43802F52754B8E6004C8656 /* AudioPlayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = D43802F42754B8E6004C8656 /* AudioPlayer.swift */; };
+		D43802F72754BA31004C8656 /* victory.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = D43802F62754BA31004C8656 /* victory.mp3 */; };
+		D43802F92754CC90004C8656 /* click.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = D43802F82754CC90004C8656 /* click.mp3 */; };
+		D43802FB2754CDC3004C8656 /* boom2.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = D43802FA2754CDC3004C8656 /* boom2.mp3 */; };
+		D43802FD2754CFF0004C8656 /* boom.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = D43802FC2754CFF0004C8656 /* boom.mp3 */; };
+		D43802FF2754D448004C8656 /* fail.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = D43802FE2754D448004C8656 /* fail.mp3 */; };
+		D43803012754DA90004C8656 /* sound_game.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = D43803002754DA90004C8656 /* sound_game.mp3 */; };
+		D43803032754DB46004C8656 /* trash.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = D43803022754DB46004C8656 /* trash.mp3 */; };
+		D43803072754E1EB004C8656 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = D43803052754E1EB004C8656 /* InfoPlist.strings */; };
+		D438030A2754E1EB004C8656 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = D43803082754E1EB004C8656 /* Localizable.strings */; };
 		D44490E0271FE996003CD995 /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = D44490DF271FE996003CD995 /* README.md */; };
 		D44490E4271FEBDF003CD995 /* ScreenShot1.png in Resources */ = {isa = PBXBuildFile; fileRef = D44490E2271FEBDF003CD995 /* ScreenShot1.png */; };
 		D44490E5271FEBDF003CD995 /* ScreenShot2.png in Resources */ = {isa = PBXBuildFile; fileRef = D44490E3271FEBDF003CD995 /* ScreenShot2.png */; };
@@ -16,6 +27,23 @@
 		D45F314F271D9FC900C2F4E9 /* Constans.swift in Sources */ = {isa = PBXBuildFile; fileRef = D45F314E271D9FC900C2F4E9 /* Constans.swift */; };
 		D45F3153271DA4B900C2F4E9 /* ImageCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D45F3152271DA4B900C2F4E9 /* ImageCell.swift */; };
 		D45F3155271DA8FA00C2F4E9 /* ImageCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D45F3154271DA8FA00C2F4E9 /* ImageCell.xib */; };
+		D46C059D274BE6DC0074A651 /* Lottie in Frameworks */ = {isa = PBXBuildFile; productRef = D46C059C274BE6DC0074A651 /* Lottie */; };
+		D46C059F274BE8680074A651 /* 15479-dragon.json in Resources */ = {isa = PBXBuildFile; fileRef = D46C059E274BE8680074A651 /* 15479-dragon.json */; };
+		D46C05A9274F76DC0074A651 /* PokiDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D46C05A8274F76DC0074A651 /* PokiDetailViewController.swift */; };
+		D46C05AB274F7C120074A651 /* PokemonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D46C05AA274F7C120074A651 /* PokemonView.swift */; };
+		D46C05AD274F84C70074A651 /* PokemonDetailsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D46C05AC274F84C70074A651 /* PokemonDetailsViewModel.swift */; };
+		D46C05AF274F85900074A651 /* Pokemon.swift in Sources */ = {isa = PBXBuildFile; fileRef = D46C05AE274F85900074A651 /* Pokemon.swift */; };
+		D46C05B2274F87750074A651 /* FetchError.swift in Sources */ = {isa = PBXBuildFile; fileRef = D46C05B1274F87750074A651 /* FetchError.swift */; };
+		D46C05B4274F87BC0074A651 /* NetworkServices.swift in Sources */ = {isa = PBXBuildFile; fileRef = D46C05B3274F87BC0074A651 /* NetworkServices.swift */; };
+		D46C05B6274F88010074A651 /* NetworkMonitor.swift in Sources */ = {isa = PBXBuildFile; fileRef = D46C05B5274F88010074A651 /* NetworkMonitor.swift */; };
+		D46C05B9274F88590074A651 /* Data + Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = D46C05B8274F88590074A651 /* Data + Extensions.swift */; };
+		D46C05BB274F88990074A651 /* StyleForImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = D46C05BA274F88990074A651 /* StyleForImage.swift */; };
+		D46C05BD274F88F10074A651 /* PokemonListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D46C05BC274F88F10074A651 /* PokemonListViewModel.swift */; };
+		D46C05C1274F89E00074A651 /* ParameterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D46C05C0274F89E00074A651 /* ParameterView.swift */; };
+		D46C05C3274F8A0F0074A651 /* ParameterGroupView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D46C05C2274F8A0F0074A651 /* ParameterGroupView.swift */; };
+		D46C05C7274F8AC50074A651 /* PokemonImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D46C05C6274F8AC50074A651 /* PokemonImageView.swift */; };
+		D46C05C9274F8BA80074A651 /* PokemonDetailsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D46C05C8274F8BA80074A651 /* PokemonDetailsView.swift */; };
+		D46C05CC2750ABC80074A651 /* SDWebImageSwiftUI in Frameworks */ = {isa = PBXBuildFile; productRef = D46C05CB2750ABC80074A651 /* SDWebImageSwiftUI */; };
 		D4C823032717E381002B9223 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4C823022717E381002B9223 /* AppDelegate.swift */; };
 		D4C823052717E381002B9223 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4C823042717E381002B9223 /* SceneDelegate.swift */; };
 		D4C823072717E381002B9223 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4C823062717E381002B9223 /* ViewController.swift */; };
@@ -28,6 +56,18 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		D43802F22754B5CA004C8656 /* sound.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = sound.mp3; sourceTree = "<group>"; };
+		D43802F42754B8E6004C8656 /* AudioPlayer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioPlayer.swift; sourceTree = "<group>"; };
+		D43802F62754BA31004C8656 /* victory.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = victory.mp3; sourceTree = "<group>"; };
+		D43802F82754CC90004C8656 /* click.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = click.mp3; sourceTree = "<group>"; };
+		D43802FA2754CDC3004C8656 /* boom2.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = boom2.mp3; sourceTree = "<group>"; };
+		D43802FC2754CFF0004C8656 /* boom.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = boom.mp3; sourceTree = "<group>"; };
+		D43802FE2754D448004C8656 /* fail.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = fail.mp3; sourceTree = "<group>"; };
+		D43803002754DA90004C8656 /* sound_game.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = sound_game.mp3; sourceTree = "<group>"; };
+		D43803022754DB46004C8656 /* trash.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = trash.mp3; sourceTree = "<group>"; };
+		D43803042754DFB6004C8656 /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/Main.strings; sourceTree = "<group>"; };
+		D43803062754E1EB004C8656 /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		D43803092754E1EB004C8656 /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/Localizable.strings; sourceTree = "<group>"; };
 		D44490DF271FE996003CD995 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		D44490E2271FEBDF003CD995 /* ScreenShot1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ScreenShot1.png; sourceTree = "<group>"; };
 		D44490E3271FEBDF003CD995 /* ScreenShot2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ScreenShot2.png; sourceTree = "<group>"; };
@@ -37,6 +77,21 @@
 		D45F314E271D9FC900C2F4E9 /* Constans.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constans.swift; sourceTree = "<group>"; };
 		D45F3152271DA4B900C2F4E9 /* ImageCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageCell.swift; sourceTree = "<group>"; };
 		D45F3154271DA8FA00C2F4E9 /* ImageCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ImageCell.xib; sourceTree = "<group>"; };
+		D46C059E274BE8680074A651 /* 15479-dragon.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "15479-dragon.json"; sourceTree = "<group>"; };
+		D46C05A8274F76DC0074A651 /* PokiDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PokiDetailViewController.swift; sourceTree = "<group>"; };
+		D46C05AA274F7C120074A651 /* PokemonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PokemonView.swift; sourceTree = "<group>"; };
+		D46C05AC274F84C70074A651 /* PokemonDetailsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PokemonDetailsViewModel.swift; sourceTree = "<group>"; };
+		D46C05AE274F85900074A651 /* Pokemon.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Pokemon.swift; sourceTree = "<group>"; };
+		D46C05B1274F87750074A651 /* FetchError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FetchError.swift; sourceTree = "<group>"; };
+		D46C05B3274F87BC0074A651 /* NetworkServices.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkServices.swift; sourceTree = "<group>"; };
+		D46C05B5274F88010074A651 /* NetworkMonitor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkMonitor.swift; sourceTree = "<group>"; };
+		D46C05B8274F88590074A651 /* Data + Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Data + Extensions.swift"; sourceTree = "<group>"; };
+		D46C05BA274F88990074A651 /* StyleForImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StyleForImage.swift; sourceTree = "<group>"; };
+		D46C05BC274F88F10074A651 /* PokemonListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PokemonListViewModel.swift; sourceTree = "<group>"; };
+		D46C05C0274F89E00074A651 /* ParameterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParameterView.swift; sourceTree = "<group>"; };
+		D46C05C2274F8A0F0074A651 /* ParameterGroupView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParameterGroupView.swift; sourceTree = "<group>"; };
+		D46C05C6274F8AC50074A651 /* PokemonImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PokemonImageView.swift; sourceTree = "<group>"; };
+		D46C05C8274F8BA80074A651 /* PokemonDetailsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PokemonDetailsView.swift; sourceTree = "<group>"; };
 		D4C822FF2717E381002B9223 /* Kristall&Dragon.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Kristall&Dragon.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		D4C823022717E381002B9223 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		D4C823042717E381002B9223 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -55,12 +110,29 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D46C05CC2750ABC80074A651 /* SDWebImageSwiftUI in Frameworks */,
+				D46C059D274BE6DC0074A651 /* Lottie in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		D43802F12754B584004C8656 /* Sound */ = {
+			isa = PBXGroup;
+			children = (
+				D43803002754DA90004C8656 /* sound_game.mp3 */,
+				D43803022754DB46004C8656 /* trash.mp3 */,
+				D43802F22754B5CA004C8656 /* sound.mp3 */,
+				D43802FC2754CFF0004C8656 /* boom.mp3 */,
+				D43802F82754CC90004C8656 /* click.mp3 */,
+				D43802FE2754D448004C8656 /* fail.mp3 */,
+				D43802F62754BA31004C8656 /* victory.mp3 */,
+				D43802FA2754CDC3004C8656 /* boom2.mp3 */,
+			);
+			path = Sound;
+			sourceTree = "<group>";
+		};
 		D44490E1271FEAC2003CD995 /* Screenshots */ = {
 			isa = PBXGroup;
 			children = (
@@ -102,6 +174,47 @@
 			path = Cell;
 			sourceTree = "<group>";
 		};
+		D46C05B0274F875E0074A651 /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				D46C05B1274F87750074A651 /* FetchError.swift */,
+				D46C05B3274F87BC0074A651 /* NetworkServices.swift */,
+				D46C05B5274F88010074A651 /* NetworkMonitor.swift */,
+			);
+			path = Services;
+			sourceTree = "<group>";
+		};
+		D46C05B7274F88340074A651 /* SupportingFiles */ = {
+			isa = PBXGroup;
+			children = (
+				D46C05B8274F88590074A651 /* Data + Extensions.swift */,
+				D46C05BA274F88990074A651 /* StyleForImage.swift */,
+				D43802F42754B8E6004C8656 /* AudioPlayer.swift */,
+			);
+			path = SupportingFiles;
+			sourceTree = "<group>";
+		};
+		D46C05BE274F89170074A651 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				D46C05BC274F88F10074A651 /* PokemonListViewModel.swift */,
+				D46C05AC274F84C70074A651 /* PokemonDetailsViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		D46C05BF274F89B20074A651 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				D46C05AA274F7C120074A651 /* PokemonView.swift */,
+				D46C05C0274F89E00074A651 /* ParameterView.swift */,
+				D46C05C2274F8A0F0074A651 /* ParameterGroupView.swift */,
+				D46C05C6274F8AC50074A651 /* PokemonImageView.swift */,
+				D46C05C8274F8BA80074A651 /* PokemonDetailsView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
 		D4C822F62717E381002B9223 = {
 			isa = PBXGroup;
 			children = (
@@ -124,12 +237,20 @@
 			isa = PBXGroup;
 			children = (
 				D4C823192717E41F002B9223 /* App */,
+				D4D6FB2F274BBBFF0009C019 /* Animations */,
+				D43802F12754B584004C8656 /* Sound */,
+				D46C05B7274F88340074A651 /* SupportingFiles */,
+				D46C05B0274F875E0074A651 /* Services */,
 				D4C823182717E3F4002B9223 /* Storyboards */,
+				D46C05BF274F89B20074A651 /* View */,
 				D4C823172717E3E0002B9223 /* ViewControllers */,
 				D45F313727194E5E00C2F4E9 /* Controller */,
+				D46C05BE274F89170074A651 /* ViewModel */,
 				D4C823162717E3C5002B9223 /* Model */,
 				D4C8230B2717E384002B9223 /* Assets.xcassets */,
 				D4C823102717E384002B9223 /* Info.plist */,
+				D43803082754E1EB004C8656 /* Localizable.strings */,
+				D43803052754E1EB004C8656 /* InfoPlist.strings */,
 			);
 			path = "Kristall&Dragon";
 			sourceTree = "<group>";
@@ -142,6 +263,7 @@
 				D4C8231A2717EF1F002B9223 /* Room.swift */,
 				D4C8231E2717F08B002B9223 /* Player.swift */,
 				D45F314C271D570100C2F4E9 /* Point.swift */,
+				D46C05AE274F85900074A651 /* Pokemon.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -152,6 +274,7 @@
 				D45F3156271E9DCE00C2F4E9 /* Cell */,
 				D4C823062717E381002B9223 /* ViewController.swift */,
 				D45F312D27180CBA00C2F4E9 /* StartViewController.swift */,
+				D46C05A8274F76DC0074A651 /* PokiDetailViewController.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -175,6 +298,14 @@
 			path = App;
 			sourceTree = "<group>";
 		};
+		D4D6FB2F274BBBFF0009C019 /* Animations */ = {
+			isa = PBXGroup;
+			children = (
+				D46C059E274BE8680074A651 /* 15479-dragon.json */,
+			);
+			path = Animations;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -191,6 +322,10 @@
 			dependencies = (
 			);
 			name = "Kristall&Dragon";
+			packageProductDependencies = (
+				D46C059C274BE6DC0074A651 /* Lottie */,
+				D46C05CB2750ABC80074A651 /* SDWebImageSwiftUI */,
+			);
 			productName = "Kristall&Dragon";
 			productReference = D4C822FF2717E381002B9223 /* Kristall&Dragon.app */;
 			productType = "com.apple.product-type.application";
@@ -217,8 +352,13 @@
 			knownRegions = (
 				en,
 				Base,
+				ru,
 			);
 			mainGroup = D4C822F62717E381002B9223;
+			packageReferences = (
+				D46C059B274BE6DC0074A651 /* XCRemoteSwiftPackageReference "lottie-ios" */,
+				D46C05CA2750ABC80074A651 /* XCRemoteSwiftPackageReference "SDWebImageSwiftUI" */,
+			);
 			productRefGroup = D4C823002717E381002B9223 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -236,9 +376,20 @@
 				D4C8230F2717E384002B9223 /* LaunchScreen.storyboard in Resources */,
 				D45F3155271DA8FA00C2F4E9 /* ImageCell.xib in Resources */,
 				D44490E0271FE996003CD995 /* README.md in Resources */,
+				D43802F72754BA31004C8656 /* victory.mp3 in Resources */,
+				D46C059F274BE8680074A651 /* 15479-dragon.json in Resources */,
+				D43803072754E1EB004C8656 /* InfoPlist.strings in Resources */,
 				D4C8230C2717E384002B9223 /* Assets.xcassets in Resources */,
 				D4C8230A2717E381002B9223 /* Main.storyboard in Resources */,
+				D43802F92754CC90004C8656 /* click.mp3 in Resources */,
 				D44490E5271FEBDF003CD995 /* ScreenShot2.png in Resources */,
+				D43802FB2754CDC3004C8656 /* boom2.mp3 in Resources */,
+				D43803012754DA90004C8656 /* sound_game.mp3 in Resources */,
+				D43802F32754B5CB004C8656 /* sound.mp3 in Resources */,
+				D438030A2754E1EB004C8656 /* Localizable.strings in Resources */,
+				D43802FD2754CFF0004C8656 /* boom.mp3 in Resources */,
+				D43802FF2754D448004C8656 /* fail.mp3 in Resources */,
+				D43803032754DB46004C8656 /* trash.mp3 in Resources */,
 				D44490E4271FEBDF003CD995 /* ScreenShot1.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -252,25 +403,57 @@
 			files = (
 				D4C8231D2717EFD0002B9223 /* Things.swift in Sources */,
 				D45F312E27180CBA00C2F4E9 /* StartViewController.swift in Sources */,
+				D46C05A9274F76DC0074A651 /* PokiDetailViewController.swift in Sources */,
 				D4C823072717E381002B9223 /* ViewController.swift in Sources */,
+				D46C05C7274F8AC50074A651 /* PokemonImageView.swift in Sources */,
+				D46C05BD274F88F10074A651 /* PokemonListViewModel.swift in Sources */,
+				D46C05AB274F7C120074A651 /* PokemonView.swift in Sources */,
+				D46C05BB274F88990074A651 /* StyleForImage.swift in Sources */,
+				D46C05AF274F85900074A651 /* Pokemon.swift in Sources */,
 				D45F314D271D570100C2F4E9 /* Point.swift in Sources */,
+				D46C05B9274F88590074A651 /* Data + Extensions.swift in Sources */,
+				D43802F52754B8E6004C8656 /* AudioPlayer.swift in Sources */,
+				D46C05B6274F88010074A651 /* NetworkMonitor.swift in Sources */,
 				D45F3153271DA4B900C2F4E9 /* ImageCell.swift in Sources */,
 				D4C823032717E381002B9223 /* AppDelegate.swift in Sources */,
+				D46C05AD274F84C70074A651 /* PokemonDetailsViewModel.swift in Sources */,
+				D46C05C1274F89E00074A651 /* ParameterView.swift in Sources */,
+				D46C05C9274F8BA80074A651 /* PokemonDetailsView.swift in Sources */,
+				D46C05C3274F8A0F0074A651 /* ParameterGroupView.swift in Sources */,
 				D45F314F271D9FC900C2F4E9 /* Constans.swift in Sources */,
+				D46C05B4274F87BC0074A651 /* NetworkServices.swift in Sources */,
 				D4C8231B2717EF1F002B9223 /* Room.swift in Sources */,
 				D4C8231F2717F08B002B9223 /* Player.swift in Sources */,
 				D4C823052717E381002B9223 /* SceneDelegate.swift in Sources */,
 				D45F31452719AE4700C2F4E9 /* CreatorLabyrinth.swift in Sources */,
+				D46C05B2274F87750074A651 /* FetchError.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
+		D43803052754E1EB004C8656 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				D43803062754E1EB004C8656 /* ru */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		D43803082754E1EB004C8656 /* Localizable.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				D43803092754E1EB004C8656 /* ru */,
+			);
+			name = Localizable.strings;
+			sourceTree = "<group>";
+		};
 		D4C823082717E381002B9223 /* Main.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
 				D4C823092717E381002B9223 /* Base */,
+				D43803042754DFB6004C8656 /* ru */,
 			);
 			name = Main.storyboard;
 			sourceTree = "<group>";
@@ -290,6 +473,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++17";
@@ -351,6 +535,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++17";
@@ -486,6 +671,38 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		D46C059B274BE6DC0074A651 /* XCRemoteSwiftPackageReference "lottie-ios" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/airbnb/lottie-ios";
+			requirement = {
+				branch = master;
+				kind = branch;
+			};
+		};
+		D46C05CA2750ABC80074A651 /* XCRemoteSwiftPackageReference "SDWebImageSwiftUI" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/SDWebImage/SDWebImageSwiftUI.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 2.0.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		D46C059C274BE6DC0074A651 /* Lottie */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = D46C059B274BE6DC0074A651 /* XCRemoteSwiftPackageReference "lottie-ios" */;
+			productName = Lottie;
+		};
+		D46C05CB2750ABC80074A651 /* SDWebImageSwiftUI */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = D46C05CA2750ABC80074A651 /* XCRemoteSwiftPackageReference "SDWebImageSwiftUI" */;
+			productName = SDWebImageSwiftUI;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = D4C822F72717E381002B9223 /* Project object */;
 }

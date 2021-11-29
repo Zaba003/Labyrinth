@@ -12,6 +12,8 @@ class Room {
     // Массив смежных комнат
     var doors: [Int] = [-1, -1, -1, -1]
     var things: [Thing] = []
+    var polygon: [Point] = []
+    let currentLevel = UserDefaults.standard.integer(forKey: "level")
     
     init(id: Int) {
         self.id = id
@@ -21,7 +23,7 @@ class Room {
         
         doors = [-1, -1, -1, -1]
         var idChanges: [[Int]] = []
-
+        
         if N > 1 && M > 1 {
             // определяем направления установки дверей
             var exceptions: Set<Int> = []
@@ -68,21 +70,50 @@ class Room {
     
     func generateThings() {
         things = []
+        polygon = []
+        
+        var count = 0
         // Добавляем рандомно вещи в комнаты
-        let countThings = Int.random(in: 0...4)
+        if currentLevel <= 5 {
+            count = Int.random(in: 0...2)
+        } else if currentLevel >= 6 && currentLevel <= 10 {
+            count = Int.random(in: 0...3)
+        } else if currentLevel >= 11 {
+            count = Int.random(in: 0...4)
+        }
+        
+        let countThings = count
+        
         let things = Set<Things>(Things.allCases)
-            .subtracting(Set<Things>([.key, .box]))
-            
-        for i in 0..<countThings {
+            .subtracting(Set<Things>([.key, .box, .book]))
+        
+        let cellX = UserDefaults.standard.integer(forKey: "width") / 50
+        let cellY = UserDefaults.standard.integer(forKey: "height") / 50
+        
+        
+        var coordX = 0
+        var coordY = 0
+        
+        for _ in 0..<cellX {
+            for _ in 0..<cellY {
+                let coord = Point(x: coordX, y: coordY)
+                polygon.append(coord)
+                coordY += 50
+            }
+            coordY = 0
+            coordX += 50
+        }
+        
+        for _ in 0..<countThings {
             if let thing = things.randomElement() {
-                var coordinate = Point(x: 0, y: 0)
-                switch i {
-                case 1: coordinate = Point(x: 100, y: 0)
-                case 2: coordinate = Point(x: 0, y: 100)
-                case 3: coordinate = Point(x: 100, y: 100)
-                default:
-                    break
-                }
+                
+                let numberElement = Int.random(in: 0..<polygon.count)
+                let randomX = polygon[numberElement]
+                //print(randomX)
+                polygon.remove(at: numberElement)
+                
+                let coordinate = Point(x: randomX.x, y: randomX.y)
+                
                 var description = ""
                 switch thing {
                 case Things.bone:
@@ -93,6 +124,8 @@ class Room {
                     description = "Stone"
                 case Things.food:
                     description = "Food"
+                case Things.book:
+                    description = "Book"
                 default:
                     break
                 }
@@ -102,4 +135,5 @@ class Room {
             }
         }
     }
+    
 }

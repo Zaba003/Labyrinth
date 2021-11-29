@@ -30,6 +30,7 @@ internal enum Constants {
             internal static let stone = "stoneIcon"
             internal static let mushroom = "mushroomIcon"
             internal static let food = "foodIcon"
+            internal static let book = "bookIcon"
         }
     }
 }
